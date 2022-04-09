@@ -90,9 +90,9 @@ The validation set will be used to determine the model with the ideal number of 
 
 The figures below show the training and validation set accuracies for each hidden layers for each neuron number. Based on the graphs the models chosen for further testing are on the table below.
 
-![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection1.png)
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection1.PNG)
 
-![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection2.png)
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection2.PNG)
 
 ![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Confusion_matrix.png)
 
@@ -102,7 +102,7 @@ The figures below show the training and validation set accuracies for each hidde
 
 A simple Random Forest model was created with default scikit-learn parameters to test against simpler models. The results are below.
 
-![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/RandomForest.png)
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/RandomForest.PNG)
 
 Despite a ROC curve above the 50% threshold, it is clear that the model is bias towards the negative class. Although the model is untuned, the root of the issue of this problem is regarding the lack of positive cases. The deep learning neural networks outperformed the random forest model, even after oversampling the random forest model was extremely biased towards the negative class. The model seems to perform in a different manner as the Orfanoudaki et al. paper. Where the models had low negative predictive power but high positive predictive power meaning it better classified the minority class7.
 
