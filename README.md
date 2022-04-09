@@ -80,7 +80,7 @@ The database provided contained a total of 4238 and 16 features which included b
 
 The education feature was dropped as there were too many missing values. Then, rows with missing values were dropped as well. The data was then normalised in order to place the features on the same scale of 0 to 1. The data was split into a training, validation, and test set. The training set was 75% of the data and the test set was 25%. The validation set was 10% of the training data. As the data is imbalanced, the training and validation sets were oversampled to match the majority class in order to prevent bias.
 
-![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/EDA.png)
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/EDA.PNG)
 
 ## Model Selection
 
@@ -110,8 +110,6 @@ The Buenza et al. 2019 study had similar results, a high negative predictive pow
 
 Overall this study shows that adding dropouts to hidden layers is an effective method to handle overtraining. All the models did better at predicting the positive class except at 4 hidden layers. A follow up experiment would be to undersample the data to match the class counts in the training set as opposed to oversampling. Oversampling the data may have caused the noise in the imbalanced class to be repeated multiple times and therefore had weight on decision making. Also, it appears that the model can still benefit with further neurons and hidden layers as the accuracy in Figure 8 suggest that the validation set accuracy was still improving. However this experiment itself was already computationally expensive. The main issue with deep learning is that it is difficult to assess the weight of the features. The cost of a having a machine learning model that can detect complex pattern between features is not knowing how the features interact. The figure below shows the optimal decision tree of a similar study by Glienke (2020)13.
 
-Figure 12. Optimised decision tree classifier. 
-13
 Glinke also had the same issue of low PPV as the models identified less than 15 true positives. What was interesting was that the logistic regression model found being a male as the primary feature for decision making, which was not seen in the decision tree model.
 Figure 13. Optimised linear regression model.13
 Lastly, it appears that ROC AUC measurement is not ideal for the imbalanced dataset. The random forest showed some predictive power despite being highly biased and only 0.14 sensitivity. Other studies also used ROC AUC as the main measurement for accuracy, the Precision-Recall Curves may have been a more suitable decision as it puts more weight on the minority class14
