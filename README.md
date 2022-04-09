@@ -56,14 +56,21 @@ Deep learning neural networks (DNNs) are capable of solving complex problems wit
 
 Binary cross entropy computes loss as the vertical distance between the class (0 or 1) from the decision of the sigmoid function classifier10. 
 
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/cross_entropy.png)
+
 The negative log loss is then calculated, this is to better penalise bad predictions, as the loss increases exponentially with poor decisions.
 
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/logloss.png)
 
 After the loss is calculated the optimiser (Adam), which is a form of stochastic gradient descent, will change the weights of the model to reduce the loss. This is done by gradient descent. Gradient descent takes the change in loss of the current and previous model to determine the direction to improve the model. This creates a quadratic function where the minimum point (gradient = 0) is the most optimal model with the least loss. Adam measures the gradient of the error and change in bias to decrease it to zero. The rate in how far a step it takes for each iteration is determined the learning rate or alpha. If alpha is set too small gradient descent will take too long, if it is too big it will overshoot the minimum point.10
 
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/gradient_descent.png)
+
 The number of hidden layers and the neurons in the layers determine the complexity of the model. Often DNNs suffer overfitting, where the model fails to generalize to new data, which is often characterised by a high training accuracy but a poor test accuracy. Adding dropouts to the hidden layers is a simple method to overcome overfitting, the dropout rate determines the fraction of neurons that will randomly be deleted in the hidden layer11.
 
-Figure 7. Understanding how dropout works11For this experiment, three hidden layers will be used which connect to a final output layer with one neuron where the sigmoid function is implemented to address the prediction to the binary class. The hidden layers will be tested with neurons of 30,35,40,45,50,55 and 60 in hidden layers of 1 to 4. This will be redone with a drop out rate of 0.5 on each hidden layer and double the neurons.
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/dropouts.png)
+
+For this experiment, three hidden layers will be used which connect to a final output layer with one neuron where the sigmoid function is implemented to address the prediction to the binary class. The hidden layers will be tested with neurons of 30,35,40,45,50,55 and 60 in hidden layers of 1 to 4. This will be redone with a drop out rate of 0.5 on each hidden layer and double the neurons.
 
 # Results
 
@@ -73,6 +80,8 @@ The database provided contained a total of 4238 and 16 features which included b
 
 The education feature was dropped as there were too many missing values. Then, rows with missing values were dropped as well. The data was then normalised in order to place the features on the same scale of 0 to 1. The data was split into a training, validation, and test set. The training set was 75% of the data and the test set was 25%. The validation set was 10% of the training data. As the data is imbalanced, the training and validation sets were oversampled to match the majority class in order to prevent bias.
 
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/EDA.png)
+
 ## Model Selection
 
 The validation set will be used to determine the model with the ideal number of neurons for each hidden layer number. This will be tested then with the test set. Receiving Operator Curves (ROC) will be plotted alongside confusion matrixes and sensitivity, specificity, positive predictive value (PPV) and negative predictive value (NPV) to assess each model.
@@ -81,9 +90,19 @@ The validation set will be used to determine the model with the ideal number of 
 
 The figures below show the training and validation set accuracies for each hidden layers for each neuron number. Based on the graphs the models chosen for further testing are on the table below.
 
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection1.png)
+
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Model_selection2.png)
+
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/Confusion_matrix.png)
+
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/chosen_models.png)
+
 ## Comparison against simpler models and future experiments
 
 A simple Random Forest model was created with default scikit-learn parameters to test against simpler models. The results are below.
+
+![](https://github.com/YLumad/Deep-Learning-model-Coronary-Heart-disease-risk/blob/main/images/RandomForest.png)
 
 Despite a ROC curve above the 50% threshold, it is clear that the model is bias towards the negative class. Although the model is untuned, the root of the issue of this problem is regarding the lack of positive cases. The deep learning neural networks outperformed the random forest model, even after oversampling the random forest model was extremely biased towards the negative class. The model seems to perform in a different manner as the Orfanoudaki et al. paper. Where the models had low negative predictive power but high positive predictive power meaning it better classified the minority class7.
 
