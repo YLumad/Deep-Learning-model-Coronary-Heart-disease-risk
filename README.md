@@ -7,8 +7,42 @@ The data from this experiment can be downloaded from https://www.kaggle.com/data
 # Table of Contents
 
 [Introduction](#introduction)
+
 [Methods](#methods)
+
 [Results](#results)
+
 [References](#references)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Introduction
